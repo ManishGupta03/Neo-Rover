@@ -30,7 +30,7 @@ const server = app.listen(PORT, ()=> console.log(`Server started on PORT ${PORT}
 //Configuring the Socket IO
 const io = socket(server,{
     cors: {
-        origin : ["http://localhost:5500","http://127.0.0.1:5500","http://localhost:3000"],
+        origin : ["http://localhost:5500","http://127.0.0.1:5500","http://localhost:3000","https://neo-rover-frontend.vercel.app"],
         Credential : true,
     },
 });
