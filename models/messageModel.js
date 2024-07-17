@@ -8,6 +8,9 @@ const MessageSchema = mongoose.Schema(
     isGroup: { type: Boolean, default: false },
     groupId: { type: String, default: null },
     username: { type: String},
+    // createdAt: { type: Date, default: new Date().toLocaleTimeString() },
+    timestamp:{type:String},
+
   },
   
   {

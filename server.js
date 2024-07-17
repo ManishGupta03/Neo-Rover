@@ -52,14 +52,16 @@ io.on("connection", (socket) => {
       // when someone sending message to someone else
     
       socket.on("send-msg", (data) => {
+        // console.log(data);
               if (data.isGroup) {
           // Handle group message
           // console.log(`Group message to ${data.groupId}: ${data.msg}`);
-          io.to(data.groupId).emit("msg-recieve", data.msg,data.username);
+          io.to(data.groupId).emit("msg-recieve", data.msg,data.username,data.timestamp);
         } else {
         const sendUserSocket = onlineUsers.get(data.to);
         if (sendUserSocket) {
-          socket.to(sendUserSocket).emit("msg-recieve", data.msg,data.username);
+          // const date = new Date(data.updatedAt).toISOString().split("T")[0];
+          socket.to(sendUserSocket).emit("msg-recieve", data.msg,data.username,data.timestamp);
         }
       }
       });
